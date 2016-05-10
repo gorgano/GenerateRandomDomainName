@@ -19,11 +19,15 @@ namespace GenerateRandomDomainName
             DomainGenerator oGenerator = new DomainGenerator();
             oGenerator.init(oWordStore);
 
-            //Get the random domain name
-            string strDomain = oGenerator.getRandomDomain(10);
+            //Gerneate 10 domains
+            for (int i = 0; i < 10; ++i)
+            {
+                //Get the random domain name
+                string strDomain = oGenerator.getRandomDomain(10);
 
-            //Log to console
-            Console.WriteLine(String.Format("Your random domain is: {0}", strDomain));
+                //Log to console
+                Console.WriteLine(strDomain);
+            }
         }
     }
 
