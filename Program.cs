@@ -16,8 +16,7 @@ namespace GenerateRandomDomainName
             oWordStore.init();
 
             //Get domain generator
-            DomainGenerator oGenerator = new DomainGenerator();
-            oGenerator.init(oWordStore);
+            DomainGenerator oGenerator = DomainGenerator.create(oWordStore);
 
             //Get the random domain name
             string strDomain = oGenerator.getRandomDomain(10);
@@ -36,6 +35,18 @@ namespace GenerateRandomDomainName
  
         private IWordStore _oWordStore;
         private Random _rand;
+
+        /// <summary>
+        /// Factory class to make creating a new DomainGenerator easy
+        /// </summary>
+        /// <param name="oWordStore">Word store to use when generating words.  This allows for easy mocking or using a different type of word store later.</param>
+        /// <returns></returns>
+        public static DomainGenerator create(IWordStore oWordStore)
+        {
+            DomainGenerator o = new DomainGenerator();
+            o.init(oWordStore);
+            return o;
+        }
 
         /// <summary>
         /// Initialize the generator model
