@@ -73,7 +73,7 @@ namespace GenerateRandomDomainName
         /// <returns>string with a random suffix</returns>
         private string getRandomSuffix()
         {
-            string[] arrSuffix = new string[] { ".net", ".com", ".edu", "uk" };
+            string[] arrSuffix = new string[] { ".net", ".com", ".edu", ".uk" };
             return arrSuffix[_rand.Next(0, arrSuffix.Length)];
         }
 
